@@ -35,10 +35,6 @@ navs:
     label: 分类
 
   -
-    href: /links/
-    label: 链接
-
-  -
     href: /about/
     label: 关于
 
