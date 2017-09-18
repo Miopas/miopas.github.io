@@ -35,10 +35,6 @@ navs:
     label: 分类
 
   -
-    href: /wiki/
-    label: 维基
-
-  -
     href: /links/
     label: 链接
 
@@ -72,12 +68,8 @@ gems:
     - jekyll-feed
     - jemoji
 #     - jekyll-mentions
-collections:
-    wiki:
-        output: true
-        permalink: /wiki/:path/
 
-repository: miopas/
+repository: miopas/miopas.github.io
 
 # ---------------- #
 #      Comments    #
