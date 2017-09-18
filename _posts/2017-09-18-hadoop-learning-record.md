@@ -48,13 +48,15 @@ cat result | awk -F"\t" '{key=$1"\t"$2; c[key]++} END {for (i in c) print c[i],i
 ------
 #### 心得
 
-1. 用不熟悉的工具处理数据前（这次新用到了几个 hadoop steaming 的排序参数相关），先用简单的数据案例测试。
+1.用不熟悉的工具处理数据前，先用简单的数据案例测试。（例如这次 hadoop steaming 的排序相关参数）
 
-2. 注重单元测试
+
+2.注重单元测试。
 
 按照数据源的数据格式来构造用于单元测试的小文件，尽可能覆盖 mapreduce 中的所有处理逻辑（排序，去重，按日期取最新等）。
 
-3. 在怀疑 hadoop 集群环境之前先怀疑自己的 mapreduce
+
+3.在怀疑 hadoop 集群环境之前先怀疑自己的 mapreduce
 
 这次爬坑过程中各种把 hadoop 怀疑了一遍，最终都验证了 hadoop 毫无问题，愚蠢的是我。
 
@@ -62,7 +64,7 @@ cat result | awk -F"\t" '{key=$1"\t"$2; c[key]++} END {for (i in c) print c[i],i
 
 
 ------
-#### 一个小tip
+#### 一个hput的小tip
 
 把从 hadoop 上面 `hadoop fs -getmerge` 下来的结果文件，从本地 `hadoop fs -put` 文件到远端的时候，会莫名的慢。
 
