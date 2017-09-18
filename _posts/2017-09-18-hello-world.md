@@ -8,13 +8,18 @@ keywords: 杂谈
 
 
 首先十分感谢 @mzlogin 提供了这个模板，好看且实用。
+
 （项目地址：https://github.com/mzlogin/mzlogin.github.io）
 
 开源真好，感谢开源。
 
 开这个博客主要是为了记录一些实践中遇到的技术问题，希望自己能认真写，坚持写。
 
-###### 顺便记录一个搭建blog过程中遇到的一个小问题
+
+___
+
+
+#### 顺便记录一个搭建blog过程中遇到的一个小问题
 
 一开始我是按照 [搭建一个免费的，无限流量的Blog----github Pages和Jekyll入门](http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html) 的流程，新建了一个名为 `blog` 的repo，用 `gh-pages` 分支的方式来搭建。
 

@@ -7,12 +7,14 @@ keywords: hadoop, shell, 数据处理
 ---
 
 
-最近开始使用hadoop，处理一个以 `歌曲名 + 歌手名` 为 key，对词表进行去重操作的任务，踩到了一些坑，记录下心得。
+最近开始使用hadoop，踩到了一些坑，记录下心得。
 
+这个任务是处理一个音乐实体词表，以 `歌曲名 + 歌手名` 为 key 做去重。
 
+------
 #### 踩的坑
 
-概括一下就是 sort 的编码支持问题。
+###### 概括一下就是 sort 的编码支持问题。
 
 下面是场景还原。
 
@@ -31,14 +33,19 @@ cat result | cut -f1,2 | sort | uniq -c | sort -k2nr
 
 最后我只能从结果中取出更大的样本，取出其中 count 数目大于 1 的部分来看。然后发现基本上都是包含日文和韩文的条目。把相应的条目在原文件（result 文件）中用 grep 检查了一下，发现确实只有一个。
 
-之后尝试改进脚本为 `cat result | cut -f1,2 | LC_ALL=C sort | uniq -c | sort -k2nr` 还是没有成功。
+之后尝试改进脚本为 
+```
+cat result | cut -f1,2 | LC_ALL=C sort | uniq -c | sort -k2nr
+```
+还是没有成功。
 
-最后用 awk 写了个 count 脚本解决了。（然而由于我 shell 编程水平十分烂，awk 脚本有个bug，我又在这个坑里扑腾了半天。）
+最后用 awk 写了个 count 脚本解决了。
 ```
 cat result | awk -F"\t" '{key=$1"\t"$2; c[key]++} END {for (i in c) print c[i],i}'
 ```
+（然而由于我 shell 编程水平十分烂，awk 脚本有个bug，又在这个坑里扑腾了半天）
 
-
+------
 #### 心得
 
 1. 用不熟悉的工具处理数据前（这次新用到了几个 hadoop steaming 的排序参数相关），先用简单的数据案例测试。
@@ -54,6 +61,7 @@ cat result | awk -F"\t" '{key=$1"\t"$2; c[key]++} END {for (i in c) print c[i],i
 不过用小文件本地测，然后把小文件放到 hadoop 集群再测一次依然是个可取的办法。 
 
 
+------
 #### 一个小tip
 
 把从 hadoop 上面 `hadoop fs -getmerge` 下来的结果文件，从本地 `hadoop fs -put` 文件到远端的时候，会莫名的慢。
