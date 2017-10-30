@@ -12,7 +12,7 @@ keywords: hadoop, shell, 数据处理
 2. 以数值列为唯一的 key 来排序
 
 ------
-#### hadoop streaming 的 python 脚本使用第三方库
+#### 1.hadoop streaming 的 python 脚本使用第三方库
 
 由于公司的 hadoop 集群部署的机器上的 python 版本太低，缺少很多基础库，需要把本地的 python 打包一个传上去，用 `setCacheArchive` 参数来引用。
 参数示例如下：
@@ -28,10 +28,11 @@ keywords: hadoop, shell, 数据处理
 参考：[hadoop streaming python 添加module的问题](http://yuezhilei.com/2017/08/31/hadoop-streaming-python/)
 
 ------
-#### 以数值列为唯一的key来排序的问题
+#### 2.以数值列为唯一的 key 来排序的问题
 
 ###### case 描述
-这是一个根据歌曲热度来排序的case：给出歌曲和歌曲的热度，按照歌曲的热度排序。
+```
+这是一个根据歌曲热度来排序的 case：给出歌曲和歌曲的热度，按照歌曲的热度排序。
 
 数据示例（格式：歌曲\t热度）：
 A	2
@@ -42,10 +43,14 @@ C	3
 C	3
 A	2
 B	1
-
+```
+***
 ###### 错误尝试 A 
 
-mapper输出的数据格式为：`歌名\t热度`
+mapper 输出的数据格式为：
+```
+歌名\t热度
+```
 
 hadoop streaming 参数设置为：
 ```
@@ -53,10 +58,13 @@ hadoop streaming 参数设置为：
 -jobconf mapred.text.key.comparator.options='-k1， -k2nr' \
 -jobconf num.key.fields.for.partition=1
 ```
-
+***
 ###### 错误尝试 B
 
-mapper输出的数据格式为：`热度\t歌名\t热度`
+mapper 输出的数据格式为：
+```
+热度\t歌名\t热度
+```
 
 hadoop streaming 参数设置为：
 ```
@@ -64,7 +72,7 @@ hadoop streaming 参数设置为：
 -jobconf mapred.text.key.comparator.options='-k1nr' \
 -jobconf num.key.fields.for.partition=1
 ```
-
+***
 ###### 正解
 
 mapper输出的数据格式为：`0\t热度\t歌名\t热度`
