@@ -25,6 +25,9 @@ keywords: hadoop, shell, 数据处理
 然后把本地的 python 安装目录下的 `lib/python2.7/site-packages` 需要的库拷贝到解压的这个目录下对应的 `lib` 路径。
 最后把这个目录重新打包，上传到 hadoop 就搞定了。
 
+**2017-11-08 更新：有些情况下，直接拷贝 `site-packages` 会有问题。更合适的做法是用 `pip` 重新安装对应的第三方库，安装到指定目录下。**
+
+
 参考：[hadoop streaming python 添加module的问题](http://yuezhilei.com/2017/08/31/hadoop-streaming-python/)
 
 ------
