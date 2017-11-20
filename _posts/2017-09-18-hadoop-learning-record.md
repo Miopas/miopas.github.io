@@ -1,7 +1,7 @@
 ---
 layout: post
 title: hadoop 踩坑记录（一）
-categories: [hadoop, 数据处理]
+categories: [hadoop]
 description: 初次学习使用 hadoop 的一些记录
 keywords: hadoop, shell, 数据处理
 ---
