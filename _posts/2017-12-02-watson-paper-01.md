@@ -84,7 +84,7 @@ wikipedia 和词典资源不能 cover 一个 topic 相关的所有事实，所�
 这篇是关于怎么从大规模数据中检索答案，分为 search 和 candidate generation 两部分。
 
 ###### 4.1）search
-######## 4.1.1）search unstructured resource
+###### 4.1.1）search unstructured resource
 不同的 source 的数据有不同的特点（例如之前提过的 wikipedia article 和 news article）。
 作者观察 qa 对和相关的 document 之间的关系，总结出三种类型，对应不同的 search 方式：
 * title 是 answer
@@ -93,7 +93,7 @@ wikipedia 和词典资源不能 cover 一个 topic 相关的所有事实，所�
 
 第一种类型，采取 Document search 的方法；后两种类型，采取 Page Search 的方法。
 
-######## 4.1.2）search structured resource
+###### 4.1.2）search structured resource
 利用的 structured resource 有两个来源：现存的知识库，例如 DBpedia；自建的知识库，PRISMATIC；
 
 ###### 4.2）candidate generation
