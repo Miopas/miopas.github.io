@@ -2,25 +2,33 @@
 layout: post
 title: Deep parsing in Watson 论文理解
 categories: [问答系统]
-description: IBM Watson 相关 paper 阅读笔记
+description: 关于 Watson 中的 Deep parsing 技术
 keywords: 问答系统, chatbot, QA system
 ---
 
-这篇是关于 Watson 中的 Deep parsing 技术。
-
 一般的 Parsing，是对自然语言文本做句法层面的解析。Watson 中提出的 Deep parsing，在句法分析的基础上，还做了语义层面的解析，例如 `authorOf` 这样的关系。
 
-这篇 paper 中主要介绍了两个组件：`English Slot Grammar(ESG)` 和 `Predicate-argument structure(PAS)`。
+这篇 paper 中主要介绍了两个组件：
+* English Slot Grammar(ESG)
+* Predicate-argument structure(PAS)
 
-其中，PAS 是对 ESG 的解析出的 SG tree 做简化，而不是另一套 parsing 的方案。
+`ESG` 的解析结果是一个依存树，称为 `SG tree`。`PAS` 则是在这个树的基础上做了简化和抽象，便于粗粒度的分析。
 
 ---
 #### 1）English Slot Grammar(ESG)
-ESG 的作用，是把自然语言文本的 text 转换成结构化的文本表示的 SG tree。以下是 pipeline：
+ESG 的作用，是把自然语言文本的 text 转换成结构化的文本表示的 SG tree。
 
-Tokenization and Segmentation → Morpholexical Analysis → Syntactic Analysis
+以下是 pipeline：
+
+Tokenization and Segmentation → 
+
+Morpholexical Analysis → 
+
+Syntactic Analysis
 
 首先对文本进行分词，然后进行词形分析，最后做句法分析。
+
+下面介绍 SG Tree 的一些细节和句法分析的实现。
 
 ###### 1.1）SG Tree
 SG Tree 是一个依存树（dependency tree）。树的节点由几部分组成：
@@ -28,9 +36,10 @@ SG Tree 是一个依存树（dependency tree）。树的节点由几部分组成
 * modifier `M`：中心词 `N` 的修饰词。
 * slot：预先定义的语法关系，例如 `subj`。每个 `M` 都能填入 `N` 的一个 slot。
 * node ID：用于标识 node。
-* node features：中心词 `N` 的一些特征，如词性，语义等。见 Figure 1 的最右列。
+* node features：中心词 `N` 的一些特征，如词性，语义等。见 [Figure 1](https://github.com/Miopas/miopas.github.io/blob/master/_posts/deep_parsing_in_watson_figure_1.jpg) 的最右列。
 
-> 在 Figure 1 的例子中， 以 `chandelier` 为中心词的节点，填入以 `but` 为中心词的节点的 `subj` 的 slot。
+在 [Figure 1](https://github.com/Miopas/miopas.github.io/blob/master/_posts/deep_parsing_in_watson_figure_1.jpg) 的例子中:
+> 以 `chandelier` 为中心词的节点，填入以 `but` 为中心词的节点的 `subj` 的 slot。
 
 ###### 1.2）slot 有两类：complement slot 和 adjunct slot
 这部分涉及到一些语言学的东西，看不懂，略过。
@@ -42,9 +51,10 @@ SG Tree 中包含了两种信息：`surface structure` 和 `deep structure`。
 
 *从修饰词推出的 modifier tree structure 是 surface structure。*
 
-> 观察 Figure 1 的例子：
+观察 [
+ure 1](https://github.com/Miopas/miopas.github.io/blob/master/_posts/deep_parsing_in_watson_figure_1.jpg) 的例子：
 > 在 deep structure 中，chandelier 是 look，do，use 的 subj；
-> 但是在 surface structure 中，chandelier 仅仅是 but 的 subj（Figure 1 中只有 but 和 chandelier 在一条线上）。
+> 但是在 surface structure 中，chandelier 仅仅是 but 的 subj（[Figure 1](https://github.com/Miopas/miopas.github.io/blob/master/_posts/deep_parsing_in_watson_figure_1.jpg) 中只有 but 和 chandelier 在一条线上）。
 
 ###### 1.4）SG 的词典系统
 这部分是关于 SG lexical system 的构建。SG Analysis 的过程是**词典驱动**的。
@@ -80,7 +90,7 @@ chunk lexicon 是包含 multiword 实体的词典。
 这部分描述了实现的过程。
 **TODO**
 
-###### 2）Predicate-argument structure(PAS)
+#### 2）Predicate-argument structure(PAS)
 ###### 2.1）介绍
 SG tree 是细粒度的，但是后续的分析过程中很多是粗粒度的。
 因此，PAS 在 SG tree 的基础上删除了一些对粗粒度的分析不 essential 的部分。好处是更灵活，需要更少的语言学的知识。
