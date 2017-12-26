@@ -51,8 +51,7 @@ SG Tree 中包含了两种信息：`surface structure` 和 `deep structure`。
 
 *从修饰词推出的 modifier tree structure 是 surface structure。*
 
-观察 [
-ure 1](https://github.com/Miopas/miopas.github.io/blob/master/_posts/deep_parsing_in_watson_figure_1.jpg) 的例子：
+观察 [Figure 1](https://github.com/Miopas/miopas.github.io/blob/master/_posts/deep_parsing_in_watson_figure_1.jpg) 的例子：
 > 在 deep structure 中，chandelier 是 look，do，use 的 subj；
 > 但是在 surface structure 中，chandelier 仅仅是 but 的 subj（[Figure 1](https://github.com/Miopas/miopas.github.io/blob/master/_posts/deep_parsing_in_watson_figure_1.jpg) 中只有 but 和 chandelier 在一条线上）。
 
