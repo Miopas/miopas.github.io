@@ -1,6 +1,6 @@
 ---
 layout: post
-title: hadoop 踩坑记录（二）
+title: hadoop streaming 踩坑记录（二）
 categories: [hadoop]
 description: 初次学习使用hadoop的一些记录
 keywords: hadoop, shell, 数据处理
