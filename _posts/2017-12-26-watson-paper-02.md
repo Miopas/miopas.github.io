@@ -32,7 +32,8 @@ SG Tree 是一个依存树（dependency tree）。树的节点由几部分组成
 
 ###### 1.3）surface structure 和 deep structure
 SG Tree 中包含了两种信息：`surface structure` 和 `deep structure`。<br>
-`surface structure` 指的是语法（grammatical）层面的依存关系；`deep structure` 指的是语义逻辑（logical）层面的依存关系。<br>
+`surface structure` 指的是语法（grammatical）层面的依存关系；`deep structure` 指的是语义逻辑（logical）层面的依存关系。
+
 *从修饰词推出的 modifier tree structure 是 surface structure。*
 
 观察 [Figure 1](https://github.com/Miopas/miopas.github.io/blob/master/_posts/deep_parsing_in_watson_figure_1.jpg) 的例子：
@@ -41,28 +42,34 @@ SG Tree 中包含了两种信息：`surface structure` 和 `deep structure`。<b
 
 ###### 1.4）SG 的词典系统
 这部分是关于 SG lexical system 的构建。SG Analysis 的过程是**词典驱动**的。
-因为 fill slot 的时候需要用到词典，而后续的 syntactic analysis 的主要步骤是 slot-filling。<br>
+因为 fill slot 的时候需要用到词典，而后续的 syntactic analysis 的主要步骤是 slot-filling。
+
 *这里介绍了词典中 entry 的结构，不展开。*
 
 这里介绍了优化 ESG 的 lexcial system 的几个策略：
 
-* 在匹配的过程中，用动词形式来匹配对应的名词（名词的动词化）：<br>
-例如：celebration → celebrate
+* 在匹配的过程中，用动词形式来匹配对应的名词（名词的动词化）：
+
+> 例如：celebration → celebrate
 
 * 引入 WordNet 来扩展 base 词典
 
-* 利用名词-动词关系来扩展 base 词典<br>
+* 利用名词-动词关系来扩展 base 词典
+
 *这个关系在 parsing 的过程中不会用到，但是会呈现在 ESG 的输出结果中，供后续的流程使用。*
 
-* 引入 chunk lexicon<br>
+* 引入 chunk lexicon
+
 chunk lexicon 是包含 multiword 实体的词典。
 参考[网络释义](https://www.teachingenglish.org.uk/article/lexical-chunk)。
   
-* 计算出一个分数，后续作为 LAT 的一个 feature<br>
+* 计算出一个分数，后续作为 LAT 的一个 feature
+
 *LAT 见 Question analysis 那篇 paper*
 
 ###### 1.5）SG Syntactic Analysis
 这部分描述了实现的过程。
+
 **TODO**
 
 #### 2）Predicate-argument structure(PAS)
@@ -71,13 +78,15 @@ SG tree 是细粒度的，但是后续的分析过程中很多是粗粒度的。
 因此，PAS 在 SG tree 的基础上删除了一些对粗粒度的分析不 essential 的部分。好处是更灵活，需要更少的语言学的知识。
 
 举个例子说明。
-> I heard that Edison invented the phonograph in 1877.
-> I heard that Edison invented a phonograph in 1877.
-> I heard Edison invented the phonograph in 1877.
-> I heard that Edison was inventing the phonograph in 1877.
+> I heard that Edison invented the phonograph in 1877.<br>
+> I heard that Edison invented a phonograph in 1877.<br>
+> I heard Edison invented the phonograph in 1877.<br>
+> I heard that Edison was inventing the phonograph in 1877.<br>
 > I heard that the phonograph was invented by Edison in 1877.
-上述句子的意思有差别，在 SG Tree 的表示中也有差别。但是对于 PAS 来说，上述句子有相同的结构。
-例如，“Who invented the photograph？” 这样的 question，如果与其中一句的 PAS 表示相匹配，则也能与其他几句话匹配。这是 PAS 的一个最大的优点；同时也有缺点，可能会产生错误的结论。比如上述句子中的第二句，不能作为 answer 的依据。
+
+上述句子的意思有差别，在 SG Tree 的表示中也有差别。但是对于 PAS 来说，上述句子有相同的结构。<br>
+例如，“Who invented the photograph？” 这样的 question，如果与其中一句的 PAS 表示相匹配，则也能与其他几句话匹配。<br>
+这是 PAS 的一个最大的优点；同时也有缺点，可能会产生错误的结论。比如上述句子中的第二句，不能作为 answer 的依据。
 
 ###### 2.2）实现
 **TODO**
@@ -93,6 +102,6 @@ SG tree 是细粒度的，但是后续的分析过程中很多是粗粒度的。
 ESG 和 PAS 是整个系统中比较重要的部分，在后续的一些过程中都会用到 ESG 和 PAS 的结果，例如 Question  Analysis 和 Passage scoring 等。
 因此也比较仔细地读了这一篇。
 
-文中的 TODO 的部分，等梳理完全的论文之后找时间补全。
+文中的 TODO 的部分，等梳理完论文之后找时间补全。
 
 
