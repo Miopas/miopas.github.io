@@ -46,19 +46,19 @@ SG Tree 中包含了两种信息：`surface structure` 和 `deep structure`。<b
 
 这里介绍了优化 ESG 的 lexcial system 的几个策略：
 
-* 在匹配的过程中，用动词形式来匹配对应的名词（名词的动词化）：
+* 在匹配的过程中，用动词形式来匹配对应的名词（名词的动词化）：<br>
 例如：celebration → celebrate
 
 * 引入 WordNet 来扩展 base 词典
 
-* 利用名词-动词关系来扩展 base 词典
+* 利用名词-动词关系来扩展 base 词典<br>
 *这个关系在 parsing 的过程中不会用到，但是会呈现在 ESG 的输出结果中，供后续的流程使用。*
 
-* 引入 chunk lexicon
+* 引入 chunk lexicon<br>
 chunk lexicon 是包含 multiword 实体的词典。
 参考[网络释义](https://www.teachingenglish.org.uk/article/lexical-chunk)。
   
-* 计算出一个分数，后续作为 LAT 的一个 feature
+* 计算出一个分数，后续作为 LAT 的一个 feature<br>
 *LAT 见 Question analysis 那篇 paper*
 
 ###### 1.5）SG Syntactic Analysis
