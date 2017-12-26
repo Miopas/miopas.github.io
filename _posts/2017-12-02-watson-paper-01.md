@@ -6,7 +6,9 @@ description: IBM Watson 相关 paper 阅读笔记
 keywords: 问答系统, chatbot, QA system
 ---
 
-这里是关于 IBM Watson 在  IEEE 发表的 17 篇关于开放领域的问答系统的 paper 的阅读笔记。17 篇论文的目录可以看[这里](https://gist.github.com/Miopas/19d6d44b6c21b6b2ba868b13c30fb892)。
+这里是关于 IBM Watson 在  IEEE 发表的 17 篇关于开放领域的问答系统的 paper 的阅读笔记。
+
+17 篇论文的目录可以看[这里](https://gist.github.com/Miopas/19d6d44b6c21b6b2ba868b13c30fb892)。
 
 其中第一篇 *Introduction to “This is Watson”* 是一篇综述，介绍了整体框架，在此不讨论。
 
@@ -43,7 +45,7 @@ keywords: 问答系统, chatbot, QA system
 
 ---
 #### 2. Deep parsing in Watson
-这篇笔记写的略长，单独写了一篇，见这里。
+这篇笔记写的略长，单独写了一篇，见[Deep parsing in Watson 论文理解](https://miopas.github.io/2017/12/26/watson-paper-02/)。
 
 ---
 #### 3. Textual resource acquisition and engineering
