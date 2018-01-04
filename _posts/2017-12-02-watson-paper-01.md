@@ -98,7 +98,7 @@ wikipedia 和词典资源不能 cover 一个 topic 相关的所有事实，所�
 * title 是 question
 * title 既不是 answer 也不是 question
 
-第一种类型，采取 Document search 的方法；后两种类型，采取 Page Search 的方法。
+第一种类型，采取 Document Search 的方法；后两种类型，采取 Page Search 的方法。
 
 ###### 5.1.2）search structured resource
 利用的 structured resource 有两个来源：现存的知识库，例如 DBpedia；自建的知识库，PRISMATIC；

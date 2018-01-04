@@ -1,12 +1,12 @@
 ---
 layout: post
-title: hadoop streaming 踩坑记录（一）
+title: Hadoop Streaming 踩坑记录（一）
 categories: [hadoop]
 description: 初次学习使用 hadoop 的一些记录
 keywords: hadoop, shell, 数据处理
 ---
 
-最近开始使用 hadoop，踩到了一些坑，记录下心得。
+最近开始使用 Hadoop，踩到了一些坑，记录下心得。
 
 这个任务是处理一个音乐实体词表，以 `歌曲名 + 歌手名` 为 key 做去重。
 

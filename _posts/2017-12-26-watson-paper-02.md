@@ -1,10 +1,12 @@
 ---
 layout: post
-title: Deep parsing in Watson 论文理解
+title: Deep Parsing in Watson 论文理解
 categories: [问答系统]
 description: 关于 Watson 中的 Deep parsing 技术
 keywords: 问答系统, chatbot, QA system
 ---
+
+关于 `Deep Parsing in Watson` 论文的阅读笔记。
 
 一般的 Parsing，是对自然语言文本做句法层面的解析。Watson 中提出的 Deep parsing，在句法分析的基础上，还做了语义层面的解析，例如 `authorOf` 这样的关系。
 
