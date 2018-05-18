@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Hadoop Streaming 踩坑记录（一）
+title: Hadoop Streaming 踩坑记录（一）| 数据去重
 categories: [hadoop]
 description: 初次学习使用 hadoop 的一些记录
 keywords: hadoop, shell, 数据处理
