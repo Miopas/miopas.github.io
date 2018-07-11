@@ -57,6 +57,7 @@ mapper输出的数据格式为：`0\t热度\t歌名\t热度`
 
 hadoop streaming 参数设置为：
 ```
+-jobconf mapred.output.key.comparator.class=org.apache.hadoop.mapred.lib.KeyFieldBasedComparator \
 -jobconf stream.num.map.output.key.fields=2 \
 -jobconf mapred.text.key.comparator.options='-k2nr' \
 -jobconf num.key.fields.for.partition=1
