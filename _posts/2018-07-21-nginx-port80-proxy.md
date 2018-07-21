@@ -23,14 +23,16 @@ Ps. 可以用 `ldconfig -p | grep xxx` 来检查对应的库是否已安装。
 ## 2. 启动服务
 
 两种方式：
-1) 在 nginx 目录下运行：./sbin/nginx
+#### 2.1 在 nginx 目录下运行：./sbin/nginx
 
 用这种方式启动的话，需要用同样的方式来停止服务:
 ```shell
 ./sbin/nginx -s stop
 ```
 
-2) 运行 `service nginx start` （但是需要先设置这个启动的 nginx 的路径）
+#### 2.2 运行 `service nginx start` 
+
+这个方式，需要先设置这个启动的 nginx 的路径。
 
 同理，停止服务需要运行:
 ```shell
@@ -40,9 +42,10 @@ service nginx start
 
 ## 3. 配置端口转发 
 
-修改在安装目录下的 `conf/nginx.conf` 的配置，找到 `http {…}` 的部分，在里面修改：
+修改在安装目录下的 `conf/nginx.conf` 的配置，找到 `http {…}` 里的 `server {…}` 部分，在里面修改：
 
-```json
+```js
+
         location /app1 {
                 proxy_redirect off;
                 proxy_pass http://localhost:7474/app1/;
@@ -52,23 +55,24 @@ service nginx start
                 proxy_redirect off;
                 proxy_pass http://localhost:5001/app2/;
         }
+
 ```
 
 **注意：**这个配置是从上到下顺序生效的，所以 `location / {..}` 的配置要放在最后，不然 `location /app1 {…}` 的配置不能正常工作。
 
 
-Reference:
+#### Reference:
 
-[nginx 配置从零开始](http://oilbeater.com/nginx/2014/12/28/nginx-conf-from-zero.html)
+[1] [nginx 配置从零开始](http://oilbeater.com/nginx/2014/12/28/nginx-conf-from-zero.html)
 
-[【nginx配置】nginx做非80端口转发](http://www.hoohack.me/2015/12/10/nginx-non80-port-forward)
+[2] [【nginx配置】nginx做非80端口转发](http://www.hoohack.me/2015/12/10/nginx-non80-port-forward)
 
 
 
 ## 4. Rewrite url 
 
 遇到一个情况，如果某个服务在解析 url 路径的时候从根路径开始解析，按照上面的方式，只能这么配置：
-```json
+```js
         location / {
                 proxy_redirect off;
                 proxy_pass http://localhost:5001/;
@@ -77,7 +81,7 @@ Reference:
 
 这样做，如果有另一个服务也是按照这种方式解析，就无法配置了。有另一种方式，用 `rewrite` 来重写 url，配置如下：
 
-```json
+```js
         location /app3 {
                 rewrite /app3/(.*)  /$1  break;
                 proxy_set_header Host $host;
@@ -88,7 +92,7 @@ Reference:
 
 这样就能满足需求啦。
 
-Reference:
+#### Reference:
 
 [Nginx reverse proxy + URL rewrite](https://serverfault.com/questions/379675/nginx-reverse-proxy-url-rewrite)
 
