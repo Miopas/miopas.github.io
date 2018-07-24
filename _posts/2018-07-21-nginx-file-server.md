@@ -19,23 +19,25 @@ ngnix 的安装过程就略过了，有需要可以看这里：[nginx 实现端�
 
 依然是在配置文件 `conf/nginx.conf` 下的 `http { server {...} }` 的部分，如下配置这样一个 `location`:
 
-```js
+```
 location /myfiles {
     alias /export/share/test/; 	# 文件存放目录，注意要以 '/' 结尾；
-    index index.html;  		# 如果文件目录下有 index.html 文件，会自动跳转到 index.html 的页面；
+    index index.html;  		    # 如果文件存放目录有 index.html，会跳转到 index.html；
     autoindex on;               # 自动列出目录下的文件；
     autoindex_exact_size off;   # 文件大小按 G、M 的格式显示，而不是 Bytes；
 }
 ```
 
-然后，这就做完了。运行 `nginx` 之后，在浏览器上打开 `http://***/myfiles/`。（替换 `***` 的部分为你的 Server IP/域名/localhost。）
+然后，这就做完了。(!)
+
+运行 `nginx` 之后，在浏览器上打开 `http://***/myfiles/`。（替换 `***` 的部分为你的 Server IP/域名/localhost :)）
 
 如果 `index.html` 存在，会自动跳转到 `index.html` 页面：
-![pic-02](https://github.com/Miopas/miopas.github.io/blob/master/_posts/nginx-file-server-picture-02.jpg)
+![pic02(https://github.com/Miopas/miopas.github.io/blob/master/_posts/nginx-file-server-picture-02.jpg)
 
 
 如果 `index.html` 不存在，则自动会列出文件目录下的文件。例如，现在可以看到这个目录下的 `test.txt` 文件:
-![pic-01](https://github.com/Miopas/miopas.github.io/blob/master/_posts/nginx-file-server-picture-01.jpg)
+![pic01](https://github.com/Miopas/miopas.github.io/blob/master/_posts/nginx-file-server-picture-01.jpg)
 
 
 点击文件名即可下载。命令行爱好者也可以用 `wget` 下载，还可以断点续传哟。ヾ(=･ω･=)o
