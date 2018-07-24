@@ -6,16 +6,9 @@ description: some word here
 keywords: keyword1, keyword2
 ---
 
+这里记录如何用 `nginx` 搭建一个简易的 file server，实现在浏览器上进行文件的**下载**操作。
 
-某年某月某日，同组的大佬得知浏览器可以用 80 端口访问服务器以后就开始搞事，于是我就跟着学习了一些 server 相关的东西。
-
-~~当个社会人就是这点好啊~~
-
-这里记录一下如何用 `nginx` 搭建一个简易的 file server，实现在浏览器上进行文件的**下载**操作。
-
-ngnix 的安装过程就略过了，有需要可以看这里：[nginx 实现端口转发](https://miopas.github.io/2018/07/21/nginx-port80-proxy/)。
-
-要实现文件**下载**功能非常非常容易，不需要写任何前端的东西，只需要用到 `nginx` 本身。
+要实现文件**下载**功能非常非常容易，不需要写任何前端的东西，只需要用 `nginx` 本身的配置文件就可以实现。
 
 依然是在配置文件 `conf/nginx.conf` 下的 `http { server {...} }` 的部分，如下配置这样一个 `location`:
 
@@ -42,6 +35,11 @@ location /myfiles {
 
 点击文件名即可下载。命令行爱好者也可以用 `wget` 下载，还可以断点续传哟。ヾ(=･ω･=)o
 
-Reference:
+
+**Reference:**
 
 [ngx_http_autoindex_module](http://nginx.org/en/docs/http/ngx_http_autoindex_module.html#autoindex)
+
+
+题外话：某年某月某日，同组的大佬得知浏览器可以用 80 端口访问服务器以后就开始搞事，于是我就跟着学习了一些 server 相关的东西。当个社会人就是这点好啊。
+
