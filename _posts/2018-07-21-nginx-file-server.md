@@ -1,21 +1,21 @@
 ---
 layout: post
-title: nginx 实现浏览器文件传输服务
+title: nginx 实现浏览器文件下载服务
 categories: [Linux, nginx]
 description: some word here
 keywords: keyword1, keyword2
 ---
 
 
-某年某月某日，同组的大佬得知浏览器可以用 80 端口访问服务器以后就开始搞事，于是我就跟着学习了一些 server 相关的东西。~~当个社会人就是这点好啊~~
+某年某月某日，同组的大佬得知浏览器可以用 80 端口访问服务器以后就开始搞事，于是我就跟着学习了一些 server 相关的东西。
 
-这里记录一下如何用 nginx 搭建一个简易的 file server，实现在浏览器上进行文件的**上传**和**下载**操作。
+~~当个社会人就是这点好啊~~
+
+这里记录一下如何用 `nginx` 搭建一个简易的 file server，实现在浏览器上进行文件的**下载**操作。
 
 ngnix 的安装过程就略过了，有需要可以看这里：[nginx 实现端口转发](https://miopas.github.io/2018/07/21/nginx-port80-proxy/)。
 
-## 1. 下载文件 
-
-要实现文件**下载**功能非常非常容易，不需要写任何前端的东西，你只需要用到 `nginx` 本身。
+要实现文件**下载**功能非常非常容易，不需要写任何前端的东西，只需要用到 `nginx` 本身。
 
 依然是在配置文件 `conf/nginx.conf` 下的 `http { server {...} }` 的部分，如下配置这样一个 `location`:
 
@@ -28,8 +28,7 @@ location /myfiles {
 }
 ```
 
-这里是用到了 nginx 的 `ngx_http_autoindex_module` 模块，具体文档参见[这里](http://nginx.org/en/docs/http/ngx_http_autoindex_module.html#autoindex)。
-
+然后，这就做完了。运行 `nginx` 之后，在浏览器上打开 `http://***/myfiles/`。（替换 `***` 的部分为你的 Server IP/域名/localhost。）
 
 如果 `index.html` 存在，会自动跳转到 `index.html` 页面：
 ![pic-02](https://github.com/Miopas/miopas.github.io/blob/master/_posts/nginx-file-server-picture-02.jpg)
@@ -38,9 +37,9 @@ location /myfiles {
 如果 `index.html` 不存在，则自动会列出文件目录下的文件。例如，现在可以看到这个目录下的 `test.txt` 文件:
 ![pic-01](https://github.com/Miopas/miopas.github.io/blob/master/_posts/nginx-file-server-picture-01.jpg)
 
-点击文件名即可下载。命令行爱好者也可以用 `wget` 下载。
 
+点击文件名即可下载。命令行爱好者也可以用 `wget` 下载，还可以断点续传哟。ヾ(=･ω･=)o
 
-## 2. 上传文件 
+Reference:
 
-实现**上传**文件相对**下载**文件来说复杂一些。TODO。
+[ngx_http_autoindex_module](http://nginx.org/en/docs/http/ngx_http_autoindex_module.html#autoindex)
