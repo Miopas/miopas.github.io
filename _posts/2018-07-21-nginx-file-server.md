@@ -26,11 +26,11 @@ location /myfiles {
 运行 `nginx` 之后，在浏览器上打开 `http://***/myfiles/`。（替换 `***` 的部分为你的 Server IP/域名/localhost :)）
 
 如果 `index.html` 存在，会自动跳转到 `index.html` 页面：
-![pic02](https://github.com/Miopas/miopas.github.io/blob/master/_posts/nginx-file-server-picture-02.jpg)
+![pic02](https://github.com/Miopas/miopas.github.io/blob/master/_posts/nginx_file_server_picture_02.jpg)
 
 
 如果 `index.html` 不存在，则自动会列出文件目录下的文件。例如，现在可以看到这个目录下的 `test.txt` 文件:
-![pic01](https://github.com/Miopas/miopas.github.io/blob/master/_posts/nginx-file-server-picture-01.jpg)
+![pic01](https://github.com/Miopas/miopas.github.io/blob/master/_posts/nginx_file_server_picture_01.jpg)
 
 
 点击文件名即可下载。命令行爱好者也可以用 `wget` 下载，还可以断点续传哟。ヾ(=･ω･=)o
