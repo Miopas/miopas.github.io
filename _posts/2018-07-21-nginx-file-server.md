@@ -15,23 +15,32 @@ ngnix 的安装过程就略过了，有需要可以看这里：[nginx 实现端�
 
 ## 1. 下载文件 
 
-要实现文件**下载**功能非常非常容易，不需要写任何前端的东西，只需要配置这样一个 `location`:
+要实现文件**下载**功能非常非常容易，不需要写任何前端的东西，你只需要用到 `nginx` 本身。
+
+依然是在配置文件 `conf/nginx.conf` 下的 `http { server {...} }` 的部分，如下配置这样一个 `location`:
+
 ```js
-        location /myfiles {
-            alias /export/share/test/; 		# 文件存放目录，注意要以 '/' 结尾；
-            index index.html;  			# 如果文件目录下有 index.html 文件，会自动跳转到 index.html 的页面；
-            autoindex on;                       # 自动列出目录下的文件；
-            autoindex_exact_size off;           # 文件大小按 G、M 的格式显示，而不是 Bytes；
-        }
+location /myfiles {
+    alias /export/share/test/; 	# 文件存放目录，注意要以 '/' 结尾；
+    index index.html;  		# 如果文件目录下有 index.html 文件，会自动跳转到 index.html 的页面；
+    autoindex on;               # 自动列出目录下的文件；
+    autoindex_exact_size off;   # 文件大小按 G、M 的格式显示，而不是 Bytes；
+}
 ```
 
 这里是用到了 nginx 的 `ngx_http_autoindex_module` 模块，具体文档参见[这里](http://nginx.org/en/docs/http/ngx_http_autoindex_module.html#autoindex)。
 
-在浏览器中打开（这里 `index.html` 不存在），可以看到这个目录下的 `test.txt` 文件:
-![pic-01](https://github.com/Miopas/miopas.github.io/blob/master/_posts/nginx-file-server-picture-01.jpg)
 
-如果 `index.html` 存在，会自动跳转到 `index.html`：
+如果 `index.html` 存在，会自动跳转到 `index.html` 页面：
 ![pic-02](https://github.com/Miopas/miopas.github.io/blob/master/_posts/nginx-file-server-picture-02.jpg)
 
 
+如果 `index.html` 不存在，则自动会列出文件目录下的文件。例如，现在可以看到这个目录下的 `test.txt` 文件:
+![pic-01](https://github.com/Miopas/miopas.github.io/blob/master/_posts/nginx-file-server-picture-01.jpg)
+
+点击文件名即可下载。命令行爱好者也可以用 `wget` 下载。
+
+
 ## 2. 上传文件 
+
+实现**上传**文件相对**下载**文件来说复杂一些。TODO。
