@@ -27,7 +27,7 @@ keywords: keyword1, keyword2
 ## 2. 启动服务
 
 两种方式：
-#### 2.1 在 nginx 目录下运行：./sbin/nginx
+#### 2.1 在 nginx 目录下运行：`./sbin/nginx`
 
 用这种方式启动的话，需要用同样的方式来停止服务:
 ```shell
@@ -36,11 +36,13 @@ keywords: keyword1, keyword2
 
 #### 2.2 运行 `service nginx start` 
 
-这个方式，需要先设置这个启动的 nginx 的路径。
+> service 命令本身是一个 shell 脚本，它在 /etc/init.d/ 目录查找指定的服务脚本，然后调用该服务脚本来完成任务。
 
-同理，停止服务需要运行:
+**所以**，这种方式还需要另外配置 nginx 的配置文件路径。
+
+停止服务需要运行:
 ```shell
-service nginx start
+service nginx stop
 ```
 
 
@@ -98,3 +100,5 @@ service nginx start
 [Nginx reverse proxy + URL rewrite](https://serverfault.com/questions/379675/nginx-reverse-proxy-url-rewrite)
 
 [HTTP代理模块（HTTP Proxy）](http://shouce.jb51.net/nginx/StandardHTTPModules/HTTPProxy.html)
+
+[我使用过的Linux命令之service - 系统服务管理](http://codingstandards.iteye.com/blog/985455)

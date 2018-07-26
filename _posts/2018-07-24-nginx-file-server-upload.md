@@ -80,12 +80,14 @@ location ~ \.php$ {
 
 ```
 
-这个配置参考了博客[NGINX as a file server](https://www.yanxurui.cc/posts/server/2017-03-21-NGINX-as-a-file-server/)，其中我仅修改了 `client_max_body_size`、`upload_pass`、`upload_store`、`upload_state_store` 和 `upload_store_access` 这几个参数，以适应我的任务。
+这个配置参考了博客 [NGINX as a file server](https://www.yanxurui.cc/posts/server/2017-03-21-NGINX-as-a-file-server/)，其中我仅修改了 `client_max_body_size`、`upload_pass`、`upload_store`、`upload_state_store` 和 `upload_store_access` 这几个参数，以适应我的任务。
 
 
 ## 3. 测试
 
-在浏览器中输入 `http://***/upload.php`，
+在浏览器中输入 `http://***/upload.php`，可以看到这个界面：
+![pic-01]()
+
 
 ## 4. Tips
 
