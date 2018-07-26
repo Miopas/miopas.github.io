@@ -1,6 +1,6 @@
 ---
 layout: post
-title: nginx 实现端口转发
+title: nginx 安装及实现端口转发
 categories: [Linux, nginx]
 description: some word here
 keywords: keyword1, keyword2
