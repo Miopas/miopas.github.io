@@ -29,7 +29,45 @@ cd /usr/local/nginx-1.9.9/
 其中的 `/usr/local/nginx-1.9.9/nginx-upload-module` 路径替换为你克隆的 `nginx-upload-module` 仓库的路径。
 
 #### 1.2, 安装 php-fpm
-TODO
+
+因为我是用 `php` 脚本实现了这个功能，因此还需要启动一个监听 `php` 脚本的服务。这里用到了 `php-fpm`。
+
+参考教程：[nginx php-fpm安装配置](https://wizardforcel.gitbooks.io/nginx-doc/content/Text/6.5_nginx_php_fpm.html)
+
+> nginx本身不能处理PHP，它只是个web服务器，当接收到请求后，如果是php请求，则发给php解释器处理，并把结果返回给客户端。
+
+这里备份一下安装脚本：
+```shell
+yum -y install gcc automake autoconf libtool make
+
+yum -y install gcc gcc-c++ glibc
+
+yum -y install libmcrypt-devel mhash-devel libxslt-devel \
+	libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel libxml2 libxml2-devel \
+	zlib zlib-devel glibc glibc-devel glib2 glib2-devel bzip2 bzip2-devel \
+	ncurses ncurses-devel curl curl-devel e2fsprogs e2fsprogs-devel \
+	krb5 krb5-devel libidn libidn-devel openssl openssl-devel
+
+
+wget http://cn2.php.net/distributions/php-5.4.7.tar.gz
+tar zvxf php-5.4.7.tar.gz
+cd php-5.4.7
+./configure --prefix=/usr/local/php  --enable-fpm --with-mcrypt \
+--enable-mbstring --disable-pdo --with-curl --disable-debug  --disable-rpath \
+--enable-inline-optimization --with-bz2  --with-zlib --enable-sockets \
+--enable-sysvsem --enable-sysvshm --enable-pcntl --enable-mbregex \
+--with-mhash --enable-zip --with-pcre-regex --with-mysql --with-mysqli \
+--with-gd --with-jpeg-dir
+
+make all install
+
+cd /usr/local/php
+cp etc/php-fpm.conf.default etc/php-fpm.conf
+vi etc/php-fpm.conf
+
+```
+
+编译完成后，进入 `/usr/local/php` 目录，运行 `./sbin/php-fpm` 启动服务。
 
 ## 2. 配置 `location`
 
@@ -86,15 +124,20 @@ location ~ \.php$ {
 ## 3. 测试
 
 在浏览器中输入 `http://***/upload.php`，可以看到这个界面：
-![pic-01]()
+![pic-01](https://github.com/Miopas/miopas.github.io/raw/master/_posts/2018-07-24-nginx-file-server-upload-pic01.png)
 
+点击 `upload` 按钮后，跳转到：
+![pic-02](https://github.com/Miopas/miopas.github.io/raw/master/_posts/2018-07-24-nginx-file-server-upload-pic02.png)
+
+
+上传成功。
 
 ## 4. Tips
 
 * `php-fpm` 的 git 仓库的说明文档里的方式安装方式，是打补丁的方式。我按照这个安装步骤各种出错，建议别用；
 * 修改了 `location /upload {...}` 里面的配置以后，不仅要重启 `nginx` 服务，还需要重启 `php-fpm` 服务，新的配置才能生效；
 * 在浏览器中输入的 url 是 `http://***/upload.php` 而不是 `http://***/upload`；
-* `nginx-upload-module` 模块为了避免文件冲突，会做一个 `file hashing`，最后上传的文件的存放路径不是 `upload_store` 配置的目录，而是它的一个子目录；而且文件名会变成一串数字。~~如何解决，请看[nginx-upload-module 上传文件如何保持原文件名](还没写~~
+* `nginx-upload-module` 模块为了避免文件冲突，会做一个 `file hashing`，最后上传的文件的存放路径不是 `upload_store` 配置的目录，而是它的一个子目录；而且文件名会变成一串数字。如何解决，请看[nginx-upload-module 上传文件如何保持原文件名](https://miopas.github.io/2018/07/26/nginx-file-server-upload-keep-file-name/)
 
 
 **Reference:**
@@ -105,3 +148,4 @@ location ~ \.php$ {
 
 [NGINX as a file server](https://www.yanxurui.cc/posts/server/2017-03-21-NGINX-as-a-file-server/)
 
+[nginx php-fpm安装配置](https://wizardforcel.gitbooks.io/nginx-doc/content/Text/6.5_nginx_php_fpm.html)
