@@ -14,11 +14,15 @@ keywords: keyword1, keyword2
 
 参考教程：[Centos下 Nginx安装与配置](https://www.jianshu.com/p/d5114a2a2052)
 
-按着教程走基本没问题，记得改版本号。
-
 其中 `zlib` 之类的库可以用 `yum` 安装。`nginx` 需要从源码编译安装。
 
-Ps. 可以用 `ldconfig -p | grep xxx` 来检查对应的库是否已安装。
+在检查依赖环境的时候，可以用 `ldconfig -p | grep xxx` 来检查对应的库是否已安装。（但是用 `yum` 安装的库似乎不能用这个命令查到。）
+
+安装步骤按着教程走基本没问题，不过因为我们后续需要做端口转发，这需要用到 `nginx` 的 `HTTP proxy` 模块，所以在 `./configure` 的时候需要加入相应的配置：
+```shell
+./configure --prefix=/usr/local/nginx \
+            --http-proxy-temp-path=/usr/local/nginx/cache --with-stream
+```
 
 ## 2. 启动服务
 
@@ -61,14 +65,6 @@ service nginx start
 **注意：**这个配置是从上到下顺序生效的，所以 `location / {..}` 的配置要放在最后，不然 `location /app1 {…}` 的配置不能正常工作。
 
 
-#### Reference:
-
-[1] [nginx 配置从零开始](http://oilbeater.com/nginx/2014/12/28/nginx-conf-from-zero.html)
-
-[2] [【nginx配置】nginx做非80端口转发](http://www.hoohack.me/2015/12/10/nginx-non80-port-forward)
-
-
-
 ## 4. Rewrite url 
 
 遇到一个情况，如果某个服务在解析 url 路径的时候从根路径开始解析，按照上面的方式，只能这么配置：
@@ -92,7 +88,13 @@ service nginx start
 
 这样就能满足需求啦。
 
-#### Reference:
+
+## Reference:
+
+[nginx 配置从零开始](http://oilbeater.com/nginx/2014/12/28/nginx-conf-from-zero.html)
+
+[【nginx配置】nginx做非80端口转发](http://www.hoohack.me/2015/12/10/nginx-non80-port-forward)
 
 [Nginx reverse proxy + URL rewrite](https://serverfault.com/questions/379675/nginx-reverse-proxy-url-rewrite)
 
+[HTTP代理模块（HTTP Proxy）](http://shouce.jb51.net/nginx/StandardHTTPModules/HTTPProxy.html)
