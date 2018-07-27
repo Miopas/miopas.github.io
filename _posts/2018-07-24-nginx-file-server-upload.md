@@ -132,6 +132,8 @@ location ~ \.php$ {
 
 上传成功。
 
+*这里显示的文件上传的位置和配置中写的不一样，是因为我另外做了转存的操作。*
+
 ## 4. Tips
 
 * `php-fpm` 的 git 仓库的说明文档里的方式安装方式，是打补丁的方式。我按照这个安装步骤各种出错，建议别用；
@@ -140,8 +142,7 @@ location ~ \.php$ {
 * `nginx-upload-module` 模块为了避免文件冲突，会做一个 `file hashing`，最后上传的文件的存放路径不是 `upload_store` 配置的目录，而是它的一个子目录；而且文件名会变成一串数字。如何解决，请看[nginx-upload-module 上传文件如何保持原文件名](https://miopas.github.io/2018/07/26/nginx-file-server-upload-keep-file-name/)
 
 
-**Reference:**
-
+## Reference
 [Nginx upload module manual](http://www.grid.net.ru/nginx/upload.en.html)
 
 [nginx-upload-module github](https://github.com/fdintino/nginx-upload-module/tree/2.2)
