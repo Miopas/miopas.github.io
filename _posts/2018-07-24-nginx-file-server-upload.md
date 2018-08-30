@@ -67,7 +67,18 @@ make all install
 cd /usr/local/php
 cp etc/php-fpm.conf.default etc/php-fpm.conf
 vi etc/php-fpm.conf
+```
 
+修改
+```
+user = www-data  
+group = www-data
+```
+
+如果 www-data 用户不存在，那么先添加 www-data 用户
+```
+groupadd www-data  
+useradd -g www-data www-data
 ```
 
 编译完成后，进入 `/usr/local/php` 目录，运行 `./sbin/php-fpm` 启动服务。
