@@ -38,6 +38,9 @@ cd /usr/local/nginx-1.9.9/
 
 这里备份一下安装脚本：
 ```shell
+
+yum install epel-release
+
 yum -y install gcc automake autoconf libtool make
 
 yum -y install gcc gcc-c++ glibc
