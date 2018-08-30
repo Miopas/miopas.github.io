@@ -52,7 +52,7 @@ yum -y install libmcrypt-devel mhash-devel libxslt-devel \
 	krb5 krb5-devel libidn libidn-devel openssl openssl-devel
 
 
-wget http://cn2.php.net/distributions/php-5.4.7.tar.gz
+wget https://museum.php.net/php5/php-5.4.7.tar.gz
 tar zvxf php-5.4.7.tar.gz
 cd php-5.4.7
 ./configure --prefix=/usr/local/php  --enable-fpm --with-mcrypt \
