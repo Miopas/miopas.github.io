@@ -7,7 +7,7 @@ keywords: keyword1, keyword2
 ---
 
 
-CUDA 的版本有两种，一种是 `runtime version`，一种是 `driver version`，其中 `` 是由所安装的 nvidia 驱动版本所决定的。
+CUDA 的版本有两种，一种是 `runtime version`，一种是 `driver version`，其中 `driver version` 是由所安装的 nvidia 驱动版本所决定的。
 
 如果仅需要修改 `runtime version`，不需要卸载 nvidia 驱动。可以参考教程：[CentOS 7 卸载CUDA 9.1 安装CUDA8.0 并安装Tensorflow GPU版](http://whatbeg.com/2018/03/17/cudainstall.html)。这里我需要把 CUDA 的**驱动**版本也降级，所以需要重新安装对应的 nvidia 驱动。
 
@@ -43,7 +43,9 @@ reboot
 
 ## Reference
 [CentOS 7 卸载CUDA 9.1 安装CUDA8.0 并安装Tensorflow GPU版](http://whatbeg.com/2018/03/17/cudainstall.html)
+
 [CentOS 7 安装 NVIDIA 显卡驱动和 CUDA Toolkit](https://blog.csdn.net/xueshengke/article/details/78134991)
+
 [Install NVIDIA Driver and CUDA on Ubuntu / CentOS / Fedora Linux OS](https://gist.github.com/wangruohui/df039f0dc434d6486f5d4d098aa52d07)
 
 
