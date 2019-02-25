@@ -1,6 +1,6 @@
 ---
 layout: post
-title: PaddlePaddle(v2) 安装以运行踩坑记录
+title: PaddlePaddle(v2) 安装及运行的踩坑记录
 categories: [PaddlePaddle]
 description: 虽然感觉这篇笔记大概永远都用不上了但是写吧
 keywords: PaddlePaddle
