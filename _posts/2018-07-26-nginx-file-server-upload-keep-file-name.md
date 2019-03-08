@@ -31,7 +31,7 @@ Specifies a directory to which output files will be saved to. The directory coul
 也就是说上传后的文件，不是储存在 `<directory>` 目录下，而是会根据文件的哈希值，储存在 `<directory>` 的一个子目录下。
 
 例如这个例子中，文件名变成了 `0000000006`，储存路径变成了 `<directory>/6/`：
-![pic01](https://github.com/Miopas/miopas.github.io/raw/master/_posts/2018-07-26-nginx-file-server-upload-keep-file-name-pic01.png)
+![pic01](https://github.com/Miopas/miopas.github.io/raw/master/assets/images/posts/2018-07-26-nginx-file-server-upload-keep-file-name-pic01.png)
 
 为什么要做 `file hashing` 呢？主要是为了避免冲突。
 

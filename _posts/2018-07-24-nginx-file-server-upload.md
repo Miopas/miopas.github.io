@@ -138,10 +138,10 @@ location ~ \.php$ {
 ## 3. 测试
 
 在浏览器中输入 `http://***/upload.php`，可以看到这个界面：
-![pic-01](https://github.com/Miopas/miopas.github.io/raw/master/_posts/2018-07-24-nginx-file-server-upload-pic01.png)
+![pic-01](https://github.com/Miopas/miopas.github.io/raw/master/assets/images/posts/2018-07-24-nginx-file-server-upload-pic01.png)
 
 点击 `upload` 按钮后，跳转到：
-![pic-02](https://github.com/Miopas/miopas.github.io/raw/master/_posts/2018-07-24-nginx-file-server-upload-pic02.png)
+![pic-02](https://github.com/Miopas/miopas.github.io/raw/master/assets/images/posts/2018-07-24-nginx-file-server-upload-pic02.png)
 
 
 上传成功。

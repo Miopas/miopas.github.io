@@ -27,7 +27,7 @@ SG Tree 是一个依存树（dependency tree）。树的节点由几部分组成
 * modifier `M`：中心词 `N` 的修饰词。
 * slot：预先定义的语法关系，例如 `subj`。每个 `M` 都能填入 `N` 的一个 slot。
 * node ID：用于标识 node。
-* node features：中心词 `N` 的一些特征，如词性，语义等。见 [Figure 1](https://github.com/Miopas/miopas.github.io/blob/master/_posts/deep_parsing_in_watson_figure_1.jpg) 的最右列。
+* node features：中心词 `N` 的一些特征，如词性，语义等。见 [Figure 1](https://github.com/Miopas/miopas.github.io/blob/master/assets/images/posts/deep_parsing_in_watson_figure_1.jpg) 的最右列。
 
 ###### 1.2）slot 有两类：complement slot 和 adjunct slot
 这部分涉及到一些语言学的东西，看不懂，略过。
@@ -38,9 +38,9 @@ SG Tree 中包含了两种信息：`surface structure` 和 `deep structure`。<b
 
 *从修饰词推出的 modifier tree structure 是 surface structure。*
 
-观察 [Figure 1](https://github.com/Miopas/miopas.github.io/blob/master/_posts/deep_parsing_in_watson_figure_1.jpg) 的例子：
+观察 [Figure 1](https://github.com/Miopas/miopas.github.io/blob/master/assets/images/posts/deep_parsing_in_watson_figure_1.jpg) 的例子：
 > 在 deep structure 中，chandelier 是 look，do，use 的 subj；
-> 但是在 surface structure 中，chandelier 仅仅是 but 的 subj（[Figure 1](https://github.com/Miopas/miopas.github.io/blob/master/_posts/deep_parsing_in_watson_figure_1.jpg) 中只有 but 和 chandelier 在一条线上）。
+> 但是在 surface structure 中，chandelier 仅仅是 but 的 subj（[Figure 1](https://github.com/Miopas/miopas.github.io/blob/master/assets/images/posts/deep_parsing_in_watson_figure_1.jpg) 中只有 but 和 chandelier 在一条线上）。
 
 ###### 1.4）SG 的词典系统
 这部分是关于 SG lexical system 的构建。SG Analysis 的过程是**词典驱动**的。

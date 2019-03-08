@@ -36,10 +36,10 @@ bash NVIDIA-Linux-x86_64-xxx.xx.run --uninstall  # uninstall 这一步根据具�
 reboot
 ```
 重启后再安装一次，显示 `driver is installed successfully`。运行 `nvidia-smi` 检查 nvidia 驱动版本：
-![pic01](https://github.com/Miopas/miopas.github.io/raw/master/_posts/nvidia-driver-01.png)
+![pic01](https://github.com/Miopas/miopas.github.io/raw/master/assets/images/posts/nvidia-driver-01.png)
 
 运行 `/usr/local/cuda/samples/1_Utilities/deviceQuery/deviceQuery` 检查 CUDA 版本：
-![pic02](https://github.com/Miopas/miopas.github.io/raw/master/_posts/nvidia-driver-02.png)
+![pic02](https://github.com/Miopas/miopas.github.io/raw/master/assets/images/posts/nvidia-driver-02.png)
 
 ## Reference
 [CentOS 7 卸载CUDA 9.1 安装CUDA8.0 并安装Tensorflow GPU版](http://whatbeg.com/2018/03/17/cudainstall.html)

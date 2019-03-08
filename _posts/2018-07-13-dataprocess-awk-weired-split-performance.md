@@ -11,7 +11,7 @@ keywords: data
 
 前段时间用 awk 处理数据的时候，遇到一个奇怪的事情。
 
-![dataprocess02_1](https://github.com/Miopas/miopas.github.io/raw/master/_posts/dataprocess02.png)
+![dataprocess02_1](https://github.com/Miopas/miopas.github.io/raw/master/assets/images/posts/dataprocess02.png)
 
 
 我希望从 `dev0611.txt` 中统计只有三列的数据和剩下的其他数据。但是按这样写，得到的输出文件合起来的总行数比原文件少了很多。当时遇到这个问题比较匆忙，然后写了个 Python 脚本来做，发现没有问题，就没有再深究了。
@@ -20,7 +20,7 @@ keywords: data
 
 这几天在处理另一个文件的时候，又遇到了 awk 切分出来的文件行数对不上的事儿。通过 python 脚本的输出和 awk 脚本的输出，发现了一个特殊符号：
 
-![dataprocess02_2](https://github.com/Miopas/miopas.github.io/raw/master/_posts/dataprocess0202.png)
+![dataprocess02_2](https://github.com/Miopas/miopas.github.io/raw/master/assets/images/posts/dataprocess0202.png)
 
 没错，就是这个神奇的 `^@` 造成的。
 

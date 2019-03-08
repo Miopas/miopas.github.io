@@ -18,7 +18,7 @@ keywords: 问答系统, chatbot, QA system
 
 ---
 #### 6. Typing Candidate Answers using Type Coercion
-&emsp;&emsp;Hypothesis Generation 是[DeepQA 框架](https://github.com/Miopas/miopas.github.io/blob/master/_posts/deepqa_architecture.png)中的一个主要模块，其功能是产生 candidate answers 及对应的一系列 feature。这篇论文是关于 Hypothesis Generation 中的一个子组件 Type Coercion（TyCor），TyCor 模块的功能是给 candidate answers 计算一个 type，以及给出相应的 type score，作为 candidate answer 的一个 feature。
+&emsp;&emsp;Hypothesis Generation 是[DeepQA 框架](https://github.com/Miopas/miopas.github.io/blob/master/assets/images/posts/deepqa_architecture.png)中的一个主要模块，其功能是产生 candidate answers 及对应的一系列 feature。这篇论文是关于 Hypothesis Generation 中的一个子组件 Type Coercion（TyCor），TyCor 模块的功能是给 candidate answers 计算一个 type，以及给出相应的 type score，作为 candidate answer 的一个 feature。
 
 &emsp;&emsp;传统的 QA system 的做法是，先确定 answer 的 type，然后从对应的 type 中查找可能的 candidate answers（type-and-generate approach）。但是 Watson 的做法是相反的，先不考虑 type，产生 candidate answers，再用其他的方法去获取每一个候选的 type，然后判断这个 type 和 Question Analysis 阶段所获得的的 LAT 的 type 是否符合。
 
