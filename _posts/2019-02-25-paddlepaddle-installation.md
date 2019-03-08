@@ -50,7 +50,7 @@ Check failed: cudaSuccess == cudaStat (0 vs. 35) Cuda Error: CUDA driver version
 
 最后还是通过把 CUDA 驱动版本降级解决了。具体过程见：[CentOS 更新 CUDA 驱动版本从 9.1 降级为 9.0](https://miopas.github.io/2018/08/13/nvidia-driver-downgrade/)。
 
-下面是（虽然没说明卵用的）解决掉的 error 的记录。
+下面是（虽然什么卵用的）解决掉的 error 的记录。
 
 | 错误信息   | 解决方法    | 说明   | 参考 |
 | :--------   | :-----   | :---- | :---- |
