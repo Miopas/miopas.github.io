@@ -61,7 +61,7 @@ keywords: keyword1, keyword2
 在多分类任务中计算 precsion、recall、F1 的时候，通常是将 n 个类看做 n 个二分类任务来计算。以三分类任务为例，我们可以画出这样一个混淆矩阵：
 
 || label = class_A | label = class_B | label = class_C |
-| :------: | :------: | :------: |
+| :------: | :------: | :------: | :------: |
 | predict = class_A | | | |
 | predict = class_B | | | |
 | predict = class_C | | | |
@@ -75,12 +75,14 @@ keywords: keyword1, keyword2
 |predict = B or predict = C|FN(A)|TN(A)|
 
 对于 `class_B` 类：
+
 ||label = B|label = A or label = C|
 | :------: | :------: | :------: |
 |predict = B|TP(B)|FP(B)|
 |predict = A or predict = C|FN(B)|TN(B)|
 
 对于 `class_C` 类：
+
 ||label = C|label = A or label = B|
 | :------: | :------: | :------: |
 |predict = C|TP(C)|FP(C)|
