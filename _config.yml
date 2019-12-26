@@ -8,7 +8,7 @@ title: Miopas
 subtitle: "-"
 description: "Miopas's blog"
 keywords: Miopas
-favicon: /favicon.ico
+favicon: /akkarin.ico
 timezone: Asia/Beijing
 encoding: "utf-8"
 side_bar_repo_limit: 5
@@ -19,7 +19,7 @@ side_bar_repo_limit: 5
 author: Miopas
 organization: 地球防卫基地
 github_username: Miopas
-location: Beijing, China
+location: Atlanta, US
 #email: 
 
 # ---------------- #
@@ -27,7 +27,7 @@ location: Beijing, China
 # ---------------- #
 navs:
   -
-    href: /
+    href: /home/
     label: 首页
 
   -
