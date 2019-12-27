@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 关于如何计算多分类任务中的 precsion、recall、F1 指标
-categories: [nlp]
+categories: [MachineLearning]
 description: some word here
 keywords: keyword1, keyword2
 ---

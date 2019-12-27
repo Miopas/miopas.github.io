@@ -1,7 +1,7 @@
 ---
 layout: post
 title: IBM Watson 相关 paper 阅读笔记（一）
-categories: [问答系统]
+categories: [问答系统, NLP]
 description: IBM Watson 相关 paper 阅读笔记
 keywords: 问答系统, chatbot, QA system
 ---

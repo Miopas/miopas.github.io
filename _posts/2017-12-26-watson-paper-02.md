@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Deep Parsing in Watson 论文理解
-categories: [问答系统]
+categories: [问答系统, NLP]
 description: 关于 Watson 中的 Deep parsing 技术
 keywords: 问答系统, chatbot, QA system
 ---

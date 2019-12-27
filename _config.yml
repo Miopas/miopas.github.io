@@ -5,9 +5,7 @@ baseurl: /blog
 url: https://miopas.github.io
 date_format: "ordinal"
 title: Miopas
-subtitle: ""
-title: Miopas
-subtitle: ""
+subtitle: "v1.0.0"
 description: "Miopas's blog"
 keywords: Miopas
 timezone: Asia/Beijing
