@@ -1,8 +1,8 @@
 # ---------------- #
 #   Main Configs   #
 # ---------------- #
-baseurl: /blog
-url: https://miopas.github.io
+baseurl: 
+url: https://miopas.github.io/
 date_format: "ordinal"
 title: Miopas
 subtitle: "v1.0.0"
