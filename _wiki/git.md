@@ -142,12 +142,6 @@ git submodule update
 git submodule update --remote
 ```
 
-当在本地拉取了 submodule 的远程更新，但是想反悔时：
-
-```
-git submodule update --init
-```
-
 **删除 submodule**
 
 在 .gitmodules 中删除对应 submodule 的信息，然后使用如下命令删除子模块所有文件：
@@ -173,16 +167,6 @@ git push origin :refs/tags/v0.0.9
 
 ```
 git push origin --delete tag [tagname]
-```
-
-### 基于某次 commit 创建 tag
-
-```
-git tag <tag name> <commit id>
-```
-
-```
-git tag v1.0.0 ef0120
 ```
 
 ### 清除未跟踪文件
@@ -413,23 +397,6 @@ git config --global core.editor gvim
 * [How do I make Git use the editor of my choice for commits?](https://stackoverflow.com/questions/2596805/how-do-i-make-git-use-the-editor-of-my-choice-for-commits)
 * [转：git windows中文 乱码问题解决汇总](http://www.cnblogs.com/youxin/p/3227961.html)
 
-另外在升级 Vim 到 8.1 之后，由于 PATH 环境变量里加的还是 vim80 文件夹，导致 git commit 时提示：
-
-```
-error: cannot spawn gvim: No such file or directory
-error: unable to start editor 'gvim'
-Please supply the message using either -m or -F option.
-```
-
-使用 `which gvim` 查看：
-
-```
-$ which gvim
-/usr/bin/which: no gvim in xxxxxxx
-```
-
-将 PATH 里添加的 vim80 路径改为 vim81 后解决。
-
 ### git log 中文乱码
 
 只在 Windows 下遇到。
@@ -499,82 +466,3 @@ git config --global core.ignorecase false
 ```
 
 或者使用 `git mv oldname newname` 也是可以的。
-
-### 修复 gitk 在 macOS 下显示模糊的问题
-
-gitk 很方便，但是在 Mac 系统下默认显示很模糊，影响体验。
-
-根据网上搜索的结果，解决方法有两种，我采用第一种解决，第二种未尝试。
-
-方法一：
-
-1. 重新启动机器，按 command + R 等 Logo 和进度条出现，会进入 Recovery 模式，选择顶部的实用工具——终端，运行以下命令：
-
-    ```sh
-    csrutil disable
-    ```
-
-2. 重新启动机器。
-
-3. 编辑 Wish 程序的 plist，启动高分辨率屏支持。
-
-    ```
-    sudo gvim /System/Library/Frameworks/Tk.framework/Versions/Current/Resources/Wish.app/Contents/Info.plist
-    ```
-
-    在最后的 </dict> 前面加上以下代码
-
-    ```sh
-    <key>NSHighResolutionCapable</key>
-    <true/>
-    ```
-
-4. 更新 Wish.app。
-
-    ```sh
-    sudo touch Wish.app
-    ```
-
-5. 再次用 1 步骤的方法进入 Recovery 模式，执行 `csrutil enable` 启动对系统文件保护，再重启即可。
-
-参考：[Mac 中解决 gitk 模糊问题](http://roshanca.com/2017/make-gitk-retina-in-mac/)
-
-方法二：
-
-```sh
-brew cask install retinizer
-open /System/Library/Frameworks/Tk.framework/Versions/Current/Resources/
-```
-
-打开 retinizer，将 Wish.app 拖到 retinizer 的界面。
-
-参考：[起底Git-Git基础](http://yanhaijing.com/git/2017/02/09/deep-git-4/)
-
-### clone 时指定 master 以外的分支
-
-```sh
-git clone -b <branch name> --single-branch <repo address>
-```
-
-### 获取当前分支名称
-
-```sh
-git symbolic-ref --short -q HEAD
-```
-
-### 解决 no man viewer handled the request
-
-运行命令 `git stash --help` 报错：
-
-```sh
-warning: failed to exec 'man': Invalid argument
-fatal: no man viewer handled the request
-```
-
-原因是 Windows 下没有 man 命令。
-
-可以修改 git 配置让命令的帮助文档通过浏览器打开。
-
-```
-git config --global help.format web
-```

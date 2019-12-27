@@ -1,6 +1,6 @@
 .home .banner,
 .home .site-header {
-    background: #91bef0;
+    background: #4183c4;
     color: #fff
 }
 
@@ -34,6 +34,6 @@
   }
 
   .home .collection-head .collection-header {
-    font-size: 1.20em;
+    font-size: 1.25em;
   }
 }
