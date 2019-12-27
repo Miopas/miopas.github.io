@@ -2,7 +2,7 @@
 #   Main Configs   #
 # ---------------- #
 baseurl: 
-url: https://miopas.github.io/
+url: https://miopas.github.io/blog/
 date_format: "ordinal"
 title: Miopas
 subtitle: ""
