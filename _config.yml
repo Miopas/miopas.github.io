@@ -1,7 +1,7 @@
 # ---------------- #
 #   Main Configs   #
 # ---------------- #
-baseurl: https://miopas.github.io/blog/
+baseurl: /blog
 url: https://miopas.github.io
 date_format: "ordinal"
 title: Miopas
@@ -50,7 +50,6 @@ navs:
 #       RSS        #
 # ---------------- #
 subscribe_rss: /feed.xml
-#subscribe_rss: /feed.xml
 
 # ---------------- #
 #      Jekyll      #
