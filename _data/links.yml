@@ -1,1 +1,3 @@
-> 如果能保持更新的话......
+- name: Miopas
+  url: https://miopas.github.io/
+  src: life
