@@ -7,6 +7,7 @@ comments: true
 menu: 链接
 permalink: /links/
 ---
+> 如果能保持更新的话......
 
 {% for link in site.data.links %}
 * [{{ link.name }}]({{ link.url }})
