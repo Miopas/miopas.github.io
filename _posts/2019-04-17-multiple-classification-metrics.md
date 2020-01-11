@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 关于如何计算多分类任务中的 precsion、recall、F1 指标
+title: 计算多分类任务中 precsion、recall、F1 指标
 categories: [MachineLearning]
 description: some word here
 keywords: keyword1, keyword2
@@ -9,12 +9,7 @@ keywords: keyword1, keyword2
 关于如何计算混淆矩阵和借助混淆矩阵来计算 precision、recall、F1。并比照二分类任务，描述在多分类任务的场景下如何计算 precsion、recall 和 F1。
 
 ## 混淆矩阵和二分类任务指标
-在评价一个分类器的性能的时候，通常用到的指标是 precsion、recall 和 F1 值，并通过混淆矩阵来辅助计算这些值。
-
-<b>混淆矩阵(Confusion matrix)</b>又称为错误矩阵，在机器学习中被用于计算分类器的评价指标。对于一个分类器的预测结果，可以画出这样一个混淆矩阵：
-其中每一行表示预测的类别，每一列表示真实的类别。
-
-在二分类任务中，混淆矩阵如下所示：
+在评价一个分类器的性能的时候，通常用到的指标是 precsion、recall 和 F1 值，并通过混淆矩阵来辅助计算这些值。<b>混淆矩阵(Confusion matrix)</b>又称为错误矩阵，在机器学习中被用于计算分类器的评价指标。对于一个分类器的预测结果，可以画出这样一个混淆矩阵：表格每一行表示预测的类别，每一列表示真实的类别。在二分类任务中，混淆矩阵如下所示：
 
 || label = 1 | label = 0 |
 | :------: | :------: | :------: |
@@ -100,5 +95,5 @@ keywords: keyword1, keyword2
 在数据各类样本不均衡的情况下，采用 Micro F1 较为合理。
 
 ## 参考
-[Confusion matrix](https://en.wikipedia.org/wiki/Confusion_matrix)
+[Confusion Matrix](https://en.wikipedia.org/wiki/Confusion_matrix)
 
